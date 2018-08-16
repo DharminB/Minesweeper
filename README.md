@@ -10,38 +10,40 @@ Minesweeper game and its AI
 The AI tries to solve the puzzle by applying the following set of rules 
 
 1. Already satisfied : 
-```
-if 
-    number_on_tile == number_of_bombs_around_that_tile
-then
-    open all its closed neighbours
-```
+    ```
+    if 
+        number_on_tile == number_of_bombs_around_that_tile
+    then
+        open all its closed neighbours
+    ```
 
 2. Obvious choice :
-```
-if
-    number_on_tile == number_of_bombs_around_that_tile + number_of_closed_tiles_around_that_tile
-then 
-    flag all closed neighbours
-```
+    ```
+    if
+        number_on_tile == number_of_bombs_around_that_tile + number_of_closed_tiles_around_that_tile
+    then 
+        flag all closed neighbours
+    ```
 
 3. Mutant already satisfied
-Here  `+ 1` is for `bombtile_pair`
-```
-if
-    number_on_tile == number_of_bombs_around_that_tile + 1
-then
-    open all other tiles
-```
+
+    Here  `+ 1` is for `bombtile_pair`
+    ```
+    if
+        number_on_tile == number_of_bombs_around_that_tile + 1
+    then
+        open all other tiles
+    ```
 
 4. Mutant obvious choice
-Here also `+ 1` is for `bombtile_pair`
-```
-if
-    number_on_tile == number_of_bombs_around_that_tile + 1 + number_of_closed_tiles_around_that_tile
-then
-    flag all other neighbours
-```
+
+    Here also `+ 1` is for `bombtile_pair`
+    ```
+    if
+        number_on_tile == number_of_bombs_around_that_tile + 1 + number_of_closed_tiles_around_that_tile
+    then
+        flag all other neighbours
+    ```
 
 Here `bombtile_pair` means a pair of tiles (2 tiles) which are common closed tiles for 2 open tiles and they have exactly one bomb tile and one safe tile within the pair.
 
